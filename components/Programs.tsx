@@ -38,9 +38,11 @@ const programs: Program[] = [
 
 function ProgramCard({ program }: { program: Program }) {
   return (
-    <div className="group flex flex-col justify-between rounded-2xl border hairline bg-white p-6 cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:border-brass-deep">
+    <div className="group flex h-full flex-col justify-between rounded-2xl border hairline bg-white p-6 cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-2xl hover:border-brass-deep">
       <div>
-        <p className="eyebrow text-brass-deep">{program.code}</p>
+        <p className="eyebrow text-brass-deep transition-colors duration-300 group-hover:text-brass-deep">
+          {program.code}
+        </p>
 
         <h3
           className="mt-3 font-display text-xl text-ink transition-colors duration-300 group-hover:text-brass-deep"
@@ -79,8 +81,8 @@ export default function Programs() {
       </div>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {programs.map((p) => (
-          <ProgramCard key={p.code} program={p} />
+        {programs.map((program) => (
+          <ProgramCard key={program.code} program={program} />
         ))}
       </div>
     </section>
