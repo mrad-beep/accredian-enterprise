@@ -34,28 +34,30 @@ export default function Outcomes() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border hairline p-6">
-          <p className="eyebrow text-slate">Live cohort report</p>
-          <div className="mt-6 space-y-6">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-ink">{m.label}</span>
-                  <span className="font-mono text-sm text-brass-deep">
-                    {m.value}
-                    {m.suffix}
-                  </span>
-                </div>
-                <div className="mt-2 h-1.5 w-full rounded-full bg-line">
-                  <div
-                    className="h-1.5 rounded-full bg-brass-deep"
-                    style={{ width: `${m.value}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="rounded-2xl border hairline p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-brass-deep cursor-pointer">
+  <p className="eyebrow text-slate">Live cohort report</p>
+
+  <div className="mt-6 space-y-6">
+    {metrics.map((m) => (
+      <div key={m.label}>
+        <div className="flex items-baseline justify-between">
+          <span className="text-sm text-ink">{m.label}</span>
+          <span className="font-mono text-sm text-brass-deep">
+            {m.value}
+            {m.suffix}
+          </span>
         </div>
+
+        <div className="mt-2 h-1.5 w-full rounded-full bg-line">
+          <div
+            className="h-1.5 rounded-full bg-brass-deep transition-all duration-300"
+            style={{ width: `${m.value}%` }}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
       </div>
     </section>
   );
